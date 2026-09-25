@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Ibadurrahman Hayyan Faid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- INSERT CSS: Internal CSS, masukin semua kode CSS-nya langsung di dalem file HTML pakai tag <style>. -->
+    <style>
+      /* COMMENT: Kalau tulisan yang diapit tanda ini adalah Comment (Komentar).*/
+
+      html {
+        background-color: #f1f3f5;
+      }
+
+      /* selector universal untuk samain semua font nya */
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* SELECTOR: Ini Element Selector. langsung tag 'body' buat ngatur gaya dasar seisi halaman. */
+      body {
+        background-color: #ffff;
+        color: #111;
+        max-width: 800px;
+        margin: 20px auto; /*Box Model: Margin */
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      /* Pengaturan khusus untuk layar HP (lebar maksimal 600px) */
+      @media (max-width: 800px) {
+        html {
+          background-color: #fff;
+        }
+        body {
+          margin: 0 auto; /* Atas dan bawah jadi 0 agar full mengikuti tinggi layar HP */
+          padding: 15px; /* Mengurangi jarak dalam agar konten tidak terlalu sesak */
+          border-radius: 0; /* Menghilangkan lengkungan sudut agar pas di tepi layar HP */
+        }
+      }
+
+      /* 5. SELECTOR: Class Selector. Cirinya ada titik (.) di depan. Kepakainya buat manggil elemen yang di HTML-nya punya class="garis-putus". */
+      .garis-putus {
+        /* BOX MODEL: Border ini bagian dari Box Model buat bikin garis batas. 
+           COLOR: Warna garis kasih #999 (abu-abu). */
+        border-top: 1px dashed #999;
+        border-bottom: none;
+
+        /* 3. BOX MODEL: Kalo margin-bottom ngasih jarak kosong ke arah bawah sebesar 20px biar elemen di bawahnya nggak nempel. */
+        margin-bottom: 20px;
+      }
+
+      .garis-lurus {
+        border-top: 1px solid #ccc;
+        border-bottom: none;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      /* 5. SELECTOR: Child Selector (>). Nargetin elemen anak langsung (direct child) di dalam pembungkus #Profil (id profil). */
+      #Profil > div {
+        margin-bottom: 4px;
+      }
+
+      /* 5. SELECTOR: Descendant Selector (div p). Nargetin semua elemen <p> yang berada di dalam pembungkus <div>. */
+      div p {
+        line-height: 1.4;
+      }
+
+      /* Memastikan tabel responsif dan bisa digeser horizontal di layar kecil tanpa merusak layout */
+      .education-details {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table {
+        /* 3. BOX MODEL: Width dan max-width ini ngatur dimensi lebar (ukuran kotak) tabelnya, biar panjang maksimalnya mentok di 600px aja. */
+        width: 100%;
+        max-width: 600px;
+        border-collapse: collapse;
+        margin-top: 10px;
+        min-width: 400px;
+      }
+
+      /* 5. SELECTOR: Ini Grouping Selector. Tag 'th' sama 'td' diatur barengan */
+      th,
+      td {
+        /* 3. BOX MODEL: padding ngatur jarak DALAM. Jadi ngasih ruang antara teks tabel sama batas kotaknya. */
+        padding: 10px 15px;
+        text-align: left;
+      }
+
+      th {
+        /* 2. COLOR: Ngasih warna background terang (#f7f7f7). */
+        background-color: #f7f7f7;
+      }
+
+      mark {
+        /* 2. COLOR: atur warna latar belakangnya pakai format RGB (Red, Green, Blue) biar dapet warna kuning stabilo. */
+        background-color: rgb(243, 250, 45);
+        font-weight: 600;
+
+        /* 3. BOX MODEL: Padding buat ngasih ruang di dalam warna kuningnya, terus border-radius buat bikin ujung kotaknya jadi agak melengkung. */
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+
+      a {
+        /* 2. COLOR: Ngatur warna teks link tautannya jadi biru. */
+        color: #0056b3;
+        text-decoration: none;
+      }
+
+      /* 5. SELECTOR: Pseudo-class Selector (:hover). Fungsinya buat ngasih efek pas kursor ngelewatin link-nya (nanti muncul garis bawah). */
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* 6. DISPLAY MODE: Mengatur bagaimana sebuah elemen ditampilkan. */
+      .name {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      /* 7. POSITION: Mengatur tata letak posisi elemen badge secara relatif terhadap pembungkusnya agar aman di layar HP. */
+      #Profil {
+        position: relative;
+      }
+
+      .badge-status {
+        position: relative;
+        background-color: rgb(205, 235, 255);
+        color: #0549f7;
+        padding: 4px 10px;
+        font-size: 11px;
+        font-weight: 600;
+        border-radius: 4px;
+        white-space: nowrap;
+      }
+
+      .contact-links > ul {
+        display: flex;
+        gap: 20px;
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 5px;
+      }
+
+      /* 8. GRID: Sistem tata letak berbasis baris dan kolom menggunakan display: grid pada daftar hobi agar tersusun rapi dalam dua kolom sama rata. */
+      .hobies-list > ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding-left: 20px;
+        margin-top: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="https://telkomschools.sch.id/wp-content/uploads/2021/06/ts-logo-2.png" alt="Logo Sekolah" class="School" height="50" />
+    </div>
+
+    <hr class="garis-putus" />
+
+    <div id="Profil">
+      <div class="name">
+        <h1>Ibadurrahman Hayyan Faid</h1>
+        <span class="badge-status">Tech Enthusiast</span>
+      </div>
+      <div class="desc">
+        <p>Siswa Kelas XI PPLG 1 &bull; <mark>Rekayasa Perangkat Lunak</mark></p>
+      </div>
+      <div class="interests"><p>Minat: Software Development, Artificial Intelligence, ERP, Data Scientist & Engineer, Business Intelligence.</p></div>
+    </div>
+
+    <hr class="garis-lurus" />
+
+    <div id="Tentang">
+      <div class="about-title">
+        <h2>Tentang Saya</h2>
+      </div>
+      <div class="about-me">
+        <p>
+          Halo! Saya adalah siswa yang memiliki minat besar terhadap dunia teknologi. Ke depannya, visi saya adalah bisa terus berkembang dan berkontribusi secara luas, baik itu di bidang <strong>Software Development</strong>,
+          <strong>Artificial Intelligence (AI)</strong>, sistem <strong>ERP (Enterprise Resource Planning)</strong>, maupun dalam pengelolaan dan analisis <strong>Data</strong> untuk pemodelan AI ataupun <i>insight</i> bisnis kedepannya.
+        </p>
+      </div>
+    </div>
+
+    <hr class="garis-lurus" />
+
+    <div id="Pendidikan">
+      <div class="education-title">
+        <h2>Riwayat Pendidikan</h2>
+      </div>
+      <div class="education-details">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Tingkat</th>
+              <th>Nama Sekolah</th>
+              <th>Tahun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SMP</td>
+              <td>Quadrant Boardig School (Programming)</td>
+              <td>2023 - 2025</td>
+            </tr>
+            <tr>
+              <td>SMK</td>
+              <td>SMK Telkom Bandung (RPL)</td>
+              <td>2025 - Sekarang</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="garis-lurus" />
+
+    <div id="Hobi">
+      <div class="hobbies-title">
+        <h2>Hobi & Ketertarikan</h2>
+      </div>
+      <div class="hobies-list">
+        <ul>
+          <li>Membaca buku</li>
+          <li>Mempelajari kemampuan IT</li>
+          <li>Mengulik Seputar Coding, AI, Inovasi</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="garis-lurus" />
+
+    <div id="Kontak">
+      <div class="contact-title">
+        <h2>Kontak & Tautan</h2>
+      </div>
+      <div class="contact-info">
+        <p>Kunjungi profil saya:</p>
+      </div>
+      <div class="contact-links">
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+
+   
+  </body>
+</html>
